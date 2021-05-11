@@ -14,7 +14,6 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #34495e;
@@ -35,7 +34,6 @@ body p {
 body .game-container {
   padding: 5px 5px;
   position: relative;
-  margin: auto;
   height: 35rem;
   min-width: 31rem;
   max-width: 45rem;
@@ -142,7 +140,7 @@ body .notification-container.show {
 body .hidden-input {
   margin: 0 auto;
   position: relative;
-  bottom: 7vh;
-  opacity: 0.1;
+  top: 1rem;
+  opacity: 0.5;
 }
 /*# sourceMappingURL=style.css.map */

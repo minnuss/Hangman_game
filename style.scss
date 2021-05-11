@@ -14,7 +14,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   min-height: 100vh;
 
@@ -35,7 +35,7 @@ body {
   .game-container {
     padding: 5px 5px;
     position: relative;
-    margin: auto;
+    // margin: auto;
     height: 35rem;
     min-width: 31rem;
     max-width: 45rem;
@@ -152,7 +152,7 @@ body {
     // visibility: hidden;
     margin: 0 auto;
     position: relative;
-    bottom: 7vh;
-    opacity: 0.1;
+    top: 1rem;
+    opacity: 0.5;
   }
 }
