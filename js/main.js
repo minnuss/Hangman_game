@@ -40,6 +40,8 @@ function displayWord() {
         finalMessage.innerText = `Congratulations! You Won! 😃`
         popup.style.display = "flex"
     }
+
+    wordEl.focus()
 }
 
 // UPDATE WRONG LETTERS
