@@ -33,11 +33,11 @@ body p {
 }
 
 body .game-container {
-  padding: 20px 30px;
+  padding: 5px 5px;
   position: relative;
   margin: auto;
   height: 35rem;
-  min-width: 35rem;
+  min-width: 31rem;
   max-width: 45rem;
 }
 
@@ -140,6 +140,9 @@ body .notification-container.show {
 }
 
 body .hidden-input {
-  visibility: hidden;
+  margin: 0 auto;
+  position: relative;
+  bottom: 7vh;
+  opacity: 0.1;
 }
 /*# sourceMappingURL=style.css.map */
