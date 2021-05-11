@@ -21,7 +21,7 @@ body {
   color: #fff;
   font-size: 1.5rem;
   text-align: center;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 body h1 {
@@ -131,11 +131,15 @@ body .notification-container {
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
-  bottom: -80px;
+  bottom: -150px;
   transition: transform 0.3s ease-in-out;
 }
 
 body .notification-container.show {
-  transform: translateY(-80px);
+  transform: translateY(-140px);
+}
+
+body .hidden-input {
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */

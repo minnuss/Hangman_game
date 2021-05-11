@@ -4,6 +4,8 @@ const popup = document.getElementById('popup-container')
 const finalMessage = document.getElementById('final-message')
 const btnPlay = document.getElementById('play-again')
 const notificationEl = document.getElementById('notification-container')
+// this is for mobile phones, so keyboard will trigger on mobile
+const hiddenInput = document.querySelector('.hidden-input input')
 
 const figureParts = document.querySelectorAll('.figure-part')
 
@@ -40,8 +42,7 @@ function displayWord() {
         finalMessage.innerText = `Congratulations! You Won! 😃`
         popup.style.display = "flex"
     }
-
-    wordEl.focus()
+    hiddenInput.focus()
 }
 
 // UPDATE WRONG LETTERS
@@ -101,6 +102,7 @@ window.addEventListener('keydown', (e) => {
             }
         }
     }
+    hiddenInput.focus()
 })
 
 // PLAY AGAIN BUTTON
@@ -116,6 +118,8 @@ btnPlay.addEventListener('click', () => {
     updateWrongLettersEl()
     // hide the popup
     popup.style.display = 'none'
+    // this is for mobile phones, so keyboard will trigger on mobile
+    hiddenInput.value = ''
 })
 
 displayWord()
