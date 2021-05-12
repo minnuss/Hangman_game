@@ -80,49 +80,27 @@ function showNotification() {
 }
 
 // KEYDOWN EVENT
-window.addEventListener('keydown', (e) => {
+window.addEventListener('textInput', (e) => {
+    // console.log(e.data)
+
     // check only for letters
-    // const char = e.key.toLowerCase()
-    // console.log(char)
-    // if (e.keyCode >= 65 && e.keyCode <= 90) {
-    // if (char.charCodeAt() >= 97 && char.charCodeAt() <= 122) {
-    const letter = e.key
+    const test = (/[a-z]/gi).test(e.data)
+    const char = e.data.toLowerCase()
 
-    if (selectedWord.includes(letter)) {
-        if (!correctLetters.includes(letter)) {
-            correctLetters.push(letter)
-            displayWord()
-        } else {
-            showNotification()
-        }
-    } else {
-        if (!wrongLetters.includes(letter)) {
-            wrongLetters.push(letter)
+    if (test) {
+        console.log(char)
 
-            updateWrongLettersEl()
-        } else {
-            showNotification()
-        }
-    }
-    // }
-    hiddenInput.focus()
-})
-
-hiddenInput.addEventListener('keydown', (e) => {
-    // check only for letters
-    if (e.keyCode >= 65 && e.keyCode <= 90) {
-        const letter = e.key
-
-        if (selectedWord.includes(letter)) {
-            if (!correctLetters.includes(letter)) {
-                correctLetters.push(letter)
+        // if hidden word includes letter that is pressed
+        if (selectedWord.includes(char)) {
+            if (!correctLetters.includes(char)) {
+                correctLetters.push(char)
                 displayWord()
             } else {
                 showNotification()
             }
         } else {
-            if (!wrongLetters.includes(letter)) {
-                wrongLetters.push(letter)
+            if (!wrongLetters.includes(char)) {
+                wrongLetters.push(char)
 
                 updateWrongLettersEl()
             } else {
@@ -132,6 +110,32 @@ hiddenInput.addEventListener('keydown', (e) => {
     }
     hiddenInput.focus()
 })
+
+// OLD CODE - // KEYDOWN EVENT
+// hiddenInput.addEventListener('keydown', (e) => {
+//     // check only for letters
+//     if (e.keyCode >= 65 && e.keyCode <= 90) {
+//         const letter = e.key
+
+//         if (selectedWord.includes(letter)) {
+//             if (!correctLetters.includes(letter)) {
+//                 correctLetters.push(letter)
+//                 displayWord()
+//             } else {
+//                 showNotification()
+//             }
+//         } else {
+//             if (!wrongLetters.includes(letter)) {
+//                 wrongLetters.push(letter)
+
+//                 updateWrongLettersEl()
+//             } else {
+//                 showNotification()
+//             }
+//         }
+//     }
+//     hiddenInput.focus()
+// })
 
 // PLAY AGAIN BUTTON
 btnPlay.addEventListener('click', () => {
