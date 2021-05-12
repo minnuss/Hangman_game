@@ -151,12 +151,18 @@ body .hidden-input {
 @media (max-width: 700px) {
   body h1 {
     margin: 0;
+    font-size: 3rem;
   }
   body p {
     margin: 0;
+    font-size: 1.6rem;
   }
   body .game-container {
     height: 31rem;
+    margin: 10px;
+  }
+  body .game-container .figure-container {
+    transform: translateX(-70px);
   }
   body .game-container .wrong-letters-container span {
     font-size: 2.7rem;
