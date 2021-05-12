@@ -39,7 +39,9 @@ function displayWord() {
 
     // check if guessed the word
     if (innerWord === selectedWord) {
-        finalMessage.innerText = `Congratulations! You Won! 😃`
+        finalMessage.innerText = `Congratulations! You Won! 😃 
+        Hidden word was: ${selectedWord}
+        `
         popup.style.display = "flex"
     }
     hiddenInput.focus()
@@ -55,7 +57,8 @@ function updateWrongLettersEl() {
     // display parts of figure
     figureParts.forEach((part, index) => {
         const errors = wrongLetters.length
-
+        // console.log(errors)
+        // if index of parts are lower then number of errors, display part
         if (index < errors) {
             part.style.display = 'block'
         } else {
@@ -84,14 +87,14 @@ if (window.innerWidth > 700) {
     hiddenInput.style.display = 'none'
     // KEYDOWN EVENT - FOR DESKTOP
     document.body.addEventListener('keydown', (e) => {
-        console.log(e.key)
+        // console.log(e.key)
 
         // check only for letters
         const test = (/[a-z]/gi).test(e.key)
         const char = e.key.toLowerCase()
 
         if (test) {
-            console.log(char)
+            // console.log(char)
 
             // if hidden word includes letter that is pressed
             if (selectedWord.includes(char)) {
