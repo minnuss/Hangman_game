@@ -79,63 +79,73 @@ function showNotification() {
     }, 2000);
 }
 
-// KEYDOWN EVENT
-window.addEventListener('textInput', (e) => {
-    // console.log(e.data)
+// INPUT EVENT SPLIT FOR DESKTOP AND MOBILE
+if (window.innerWidth > 700) {
+    hiddenInput.style.display = 'none'
+    // KEYDOWN EVENT - FOR DESKTOP
+    document.body.addEventListener('keydown', (e) => {
+        console.log(e.key)
 
-    // check only for letters
-    const test = (/[a-z]/gi).test(e.data)
-    const char = e.data.toLowerCase()
+        // check only for letters
+        const test = (/[a-z]/gi).test(e.key)
+        const char = e.key.toLowerCase()
 
-    if (test) {
-        console.log(char)
+        if (test) {
+            console.log(char)
 
-        // if hidden word includes letter that is pressed
-        if (selectedWord.includes(char)) {
-            if (!correctLetters.includes(char)) {
-                correctLetters.push(char)
-                displayWord()
+            // if hidden word includes letter that is pressed
+            if (selectedWord.includes(char)) {
+                if (!correctLetters.includes(char)) {
+                    correctLetters.push(char)
+                    displayWord()
+                } else {
+                    showNotification()
+                }
             } else {
-                showNotification()
-            }
-        } else {
-            if (!wrongLetters.includes(char)) {
-                wrongLetters.push(char)
+                if (!wrongLetters.includes(char)) {
+                    wrongLetters.push(char)
 
-                updateWrongLettersEl()
-            } else {
-                showNotification()
+                    updateWrongLettersEl()
+                } else {
+                    showNotification()
+                }
             }
         }
-    }
-    hiddenInput.focus()
-})
+    })
+}
 
-// OLD CODE - // KEYDOWN EVENT
-// hiddenInput.addEventListener('keydown', (e) => {
-//     // check only for letters
-//     if (e.keyCode >= 65 && e.keyCode <= 90) {
-//         const letter = e.key
+if (window.innerWidth <= 700) {
+    // TEXT INPUT EVENT - FOR MOBILE DEVICES
+    window.addEventListener('textInput', (e) => {
+        // console.log(e.data)
 
-//         if (selectedWord.includes(letter)) {
-//             if (!correctLetters.includes(letter)) {
-//                 correctLetters.push(letter)
-//                 displayWord()
-//             } else {
-//                 showNotification()
-//             }
-//         } else {
-//             if (!wrongLetters.includes(letter)) {
-//                 wrongLetters.push(letter)
+        // check only for letters
+        const test = (/[a-z]/gi).test(e.data)
+        const char = e.data.toLowerCase()
 
-//                 updateWrongLettersEl()
-//             } else {
-//                 showNotification()
-//             }
-//         }
-//     }
-//     hiddenInput.focus()
-// })
+        if (test) {
+            console.log(char)
+            // if hidden word includes letter that is pressed
+            if (selectedWord.includes(char)) {
+                if (!correctLetters.includes(char)) {
+                    correctLetters.push(char)
+                    displayWord()
+                } else {
+                    showNotification()
+                }
+            } else {
+                if (!wrongLetters.includes(char)) {
+                    wrongLetters.push(char)
+
+                    updateWrongLettersEl()
+                } else {
+                    showNotification()
+                }
+            }
+        }
+        hiddenInput.focus()
+    })
+}
 
 // PLAY AGAIN BUTTON
 btnPlay.addEventListener('click', () => {
